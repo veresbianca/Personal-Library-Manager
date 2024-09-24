@@ -65,25 +65,35 @@ export const BookList: React.FC = () => {
         >
           Books
         </Typography>
-        {books?.map((book: Book, index: number) => (
-          <ListItem
-            key={book.id}
-            sx={{
-              padding: "0",
-            }}
+        {books && books.length > 0 ? (
+          books?.map((book: Book, index: number) => (
+            <ListItem
+              key={book.id}
+              sx={{
+                padding: "0",
+              }}
+            >
+              <ListItemText
+                primary={`${index + 1}. ${book.title}`}
+                secondary={`${book.author} - ${book.genre}`}
+              />
+              <Button color="primary" onClick={() => handleEdit(book)}>
+                Edit
+              </Button>
+              <Button color="error" onClick={() => handleDelete(book.id)}>
+                Delete
+              </Button>
+            </ListItem>
+          ))
+        ) : (
+          <Typography
+            variant="h6"
+            color="textSecondary"
+            sx={{ textAlign: "center", marginTop: 2 }}
           >
-            <ListItemText
-              primary={`${index + 1}. ${book.title}`}
-              secondary={`${book.author} - ${book.genre}`}
-            />
-            <Button color="primary" onClick={() => handleEdit(book)}>
-              Edit
-            </Button>
-            <Button color="error" onClick={() => handleDelete(book.id)}>
-              Delete
-            </Button>
-          </ListItem>
-        ))}
+            No books found. Please add some books to your library.
+          </Typography>
+        )}
       </List>
     </>
   );
