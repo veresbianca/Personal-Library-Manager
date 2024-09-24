@@ -1,50 +1,96 @@
-# React + TypeScript + Vite
+# Content
+1. [Personal Library Manager](#personal-library-manager)
+2. [Technologies Used](#technologies-used)
+3. [Setup Instructions](#setup-instructions)
+   - [Prerequisites](#prerequisites)
+   - [Clone the Repository](#clone-the-repository)
+   - [Install Dependencies](#install-dependencies)
+   - [Run the Mock Server](#run-the-mock-server)
+   - [Run the Client Application](#run-the-client-application)
+4. [Usage](#usage)
+5. [API Endpoints](#api-endpoints)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Personal Library Manager
 
-Currently, two official plugins are available:
+A React.js application built with TypeScript, SWR, Axios, Formik, and Material UI (MUI) that allows users to manage a personal collection of books. Users can add new books, view the list of existing books, update book details, and delete books.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
 
-## Expanding the ESLint configuration
+- React.js
+- TypeScript
+- SWR
+- Axios
+- Formik
+- Material UI (MUI)
+- Node.js (for the mock server)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Setup Instructions
 
-- Configure the top-level `parserOptions` property like this:
+Follow these steps to set up the project on your local machine:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Prerequisites
+
+- Node.js (v14 or later)
+- npm
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/yourusername/personal-library-manager.git
+cd personal-library-manager
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Install Dependencies
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Navigate to both the client and server directories and install the dependencies.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+For the client application:
+
+```bash
+cd personal-library-manager
+npm install
 ```
+
+For the server (mock Node.js server):
+
+```bash
+cd books_library_app_mock_server
+npm install
+```
+
+### Run the Mock Server
+
+Start the server to handle API requests.
+
+```bash
+npm books_library_app_mock_server start
+```
+
+The server will run on http://localhost:3001.
+
+### Run the Client Application
+
+In a new terminal window, navigate to the client directory and start the React application:
+
+```bash
+cd personal-library-manager
+npm start
+```
+
+The client application will be available at http://localhost:5173
+
+## Usage
+
+1.Open the application in your web browser.
+2.Use the form to add a new book with its title, author, genre, and description.
+3.View the list of books and perform actions to edit or delete entries.
+4.The application automatically updates the list using SWR.
+
+## API Endpoints
+
+The following endpoints are available on the mock server:
+
+GET /books: Retrieve the list of all books.
+POST /books: Add a new book.
+PUT /books/:id: Update an existing book.
+DELETE /books/:id: Delete a book by its ID.
