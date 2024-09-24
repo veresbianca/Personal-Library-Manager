@@ -63,7 +63,8 @@ npm install
 Start the server to handle API requests.
 
 ```bash
-npm books_library_app_mock_server start
+cd books_library_app_mock_server
+npm start
 ```
 
 The server will run on http://localhost:3001.
@@ -74,23 +75,27 @@ In a new terminal window, navigate to the client directory and start the React a
 
 ```bash
 cd personal-library-manager
-npm start
+npm run dev
 ```
 
 The client application will be available at http://localhost:5173
 
 ## Usage
 
+```bash
 1.Open the application in your web browser.
 2.Use the form to add a new book with its title, author, genre, and description.
 3.View the list of books and perform actions to edit or delete entries.
 4.The application automatically updates the list using SWR.
+```
 
 ## API Endpoints
 
 The following endpoints are available on the mock server:
 
+```bash
 GET /books: Retrieve the list of all books.
 POST /books: Add a new book.
 PUT /books/:id: Update an existing book.
 DELETE /books/:id: Delete a book by its ID.
+```
