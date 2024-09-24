@@ -36,7 +36,7 @@ Follow these steps to set up the project on your local machine:
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/personal-library-manager.git
+git clone https://github.com/veresbianca/Personal-Library-Manager.git
 cd personal-library-manager
 ```
 
